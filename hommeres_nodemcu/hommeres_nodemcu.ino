@@ -24,7 +24,8 @@ HTTPSRedirect client(httpsPort);
 //URL
 String url = String("/macros/s/") + GScriptId + "/exec?";
 
-const char* fingerprint = "F0 5C 74 77 3F 6B 25 D7 3B 66 4D 43 2F 7E BC 5B E9 28 86 AD";
+//A fingerprint ellenőrzés valamilyen okból kifolyólag nem működik, ezért kikommentelem ideiglenesen
+//const char* fingerprint = "F0 5C 74 77 3F 6B 25 D7 3B 66 4D 43 2F 7E BC 5B E9 28 86 AD";
 
 void setup() {
   Serial.begin(115200);
@@ -68,11 +69,12 @@ void setup() {
   }
 
   //fingerprint ellenőrzés
-  if (client.verify(fingerprint, host)) {
+  //A fingerprint ellenőrzés valamilyen okból kifolyólag nem működik, ezért kikommentelem ideiglenesen
+  /* if (client.verify(fingerprint, host)) {
     Serial.println("Certificate match.");
   } else {
     Serial.println("Certificate mis-match");
-  }
+  } */
 }
 
 void postData(float value1, float value2) {
